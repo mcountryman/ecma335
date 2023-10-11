@@ -1,0 +1,23 @@
+[package]
+name = "ecma335"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["read", "write", "object"]
+std = []
+read = []
+write = ["std"]
+object = ["dep:object"]
+
+[dependencies]
+bitflags = "2.3.3"
+
+[dependencies.object]
+version = "0.31.1"
+features = ["pe", "read_core"]
+optional = true
+default-features = false
+
+[dev-dependencies]
+criterion = "0.5.1"
